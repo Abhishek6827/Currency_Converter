@@ -106,3 +106,50 @@ form button {
 form button:hover {
   background-color: #933d7a;
 }
+
+/* Mobile First - container full width */
+.container {
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Dropdowns mobile पर vertical */
+.dropdown {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dropdown i {
+  transform: rotate(90deg); /* arrow vertical दिखेगा */
+  margin: 0;
+}
+
+/* Select container full width on mobile */
+.select-container {
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Input & button भी full width */
+form input,
+form button {
+  width: 100%;
+}
+
+/* ====== Tablet/Desktop ====== */
+@media (min-width: 600px) {
+  .dropdown {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .dropdown i {
+    transform: rotate(0deg);
+    margin-top: 1rem;
+  }
+
+  .select-container {
+    width: 7rem;
+  }
+}
