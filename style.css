@@ -9,23 +9,26 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4e4ba;
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
 }
 
 .container {
   background-color: #fff;
   padding: 2rem;
-  border-radius: 1rem;
-  min-height: 45vh;
-  width: 40vh;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #333;
+  font-size: 1.8rem;
 }
 
 form {
@@ -39,42 +42,72 @@ form input {
   border: none;
   outline: none;
   border-radius: 0.75rem;
+  font-family: inherit;
+}
+
+.amount {
+  margin-bottom: 1.5rem;
+}
+
+.amount p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
 }
 
 form input {
-  border: 1px solid lightgray;
-  font-size: 1rem;
-  height: 3rem;
-  padding-left: 0.5rem;
+  border: 1px solid #ddd;
+  font-size: 1.1rem;
+  height: 3.5rem;
+  padding: 0 1rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
 }
 
 .dropdown {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.dropdown i {
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  color: #af4d98;
+.from,
+.to {
+  flex: 1;
+  min-width: 120px;
+}
+
+.from p,
+.to p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
 }
 
 .select-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 7rem;
   border-radius: 0.5rem;
-  border: 1px solid lightgray;
-  padding: 0.3rem;
-  gap: 0.3rem;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  background: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.select-container:focus-within {
+  border-color: #667eea;
 }
 
 .select-container img {
   width: 25px;
   height: 25px;
+  margin-right: 0.5rem;
 }
 
 .select-container select {
@@ -83,73 +116,101 @@ form input {
   background: none;
   outline: none;
   cursor: pointer;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.swap-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+
+.swap-icon i {
+  font-size: 1.2rem;
+  color: #667eea;
+  background: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.swap-icon i:hover {
+  background: #667eea;
+  color: white;
+  transform: rotate(180deg);
 }
 
 .msg {
   margin: 2rem 0;
   text-align: center;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   color: #333;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 form button {
-  height: 3rem;
-  background-color: #af4d98;
+  height: 3.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
-  font-size: 1.15rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s;
+  border: none;
 }
 
 form button:hover {
-  background-color: #933d7a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Mobile First - container full width */
-.container {
-  width: 90%;
-  max-width: 400px;
+form button:active {
+  transform: translateY(0);
 }
 
-/* Dropdowns mobile पर vertical */
-.dropdown {
-  flex-direction: column;
-  gap: 1.5rem;
+/* Loading spinner */
+.loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50%;
+  border-top-color: #667eea;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
 }
 
-.dropdown i {
-  transform: rotate(90deg); /* arrow vertical दिखेगा */
-  margin: 0;
-}
-
-/* Select container full width on mobile */
-.select-container {
-  width: 100%;
-  justify-content: space-between;
-}
-
-/* Input & button भी full width */
-form input,
-form button {
-  width: 100%;
-}
-
-/* ====== Tablet/Desktop ====== */
-@media (min-width: 600px) {
-  .dropdown {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
+}
 
-  .dropdown i {
-    transform: rotate(0deg);
-    margin-top: 1rem;
+/* Animation for rate update */
+@keyframes highlight {
+  0% {
+    background-color: #f8f9fa;
   }
+  50% {
+    background-color: #e3f2fd;
+  }
+  100% {
+    background-color: #f8f9fa;
+  }
+}
 
-  .select-container {
-    width: 7rem;
-  }
+.highlight {
+  animation: highlight 1s ease;
 }
